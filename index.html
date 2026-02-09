@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detection System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 500px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #1e3c72;
+        }
+
+        p {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 140px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 12px;
+            font-size: 14px;
+            resize: none;
+            outline: none;
+        }
+
+        textarea:focus {
+            border-color: #2a5298;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(120deg, #1e3c72, #2a5298);
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Fake News Detection</h1>
+        <p>AI-based system to classify news as Real or Fake using Machine Learning</p>
+
+        <form method="POST" action="/predict">
+            <textarea name="news" placeholder="Paste news text here..." required></textarea>
+            <br>
+            <button type="submit">Check News</button>
+        </form>
+
+        {% if result %}
+            <div class="result">
+                Result: {{ result }}
+            </div>
+        {% endif %}
+
+        <div class="footer">
+            © AI Mini Project | Fake News Detection System
+        </div>
+    </div>
+
+</body>
+</html>
